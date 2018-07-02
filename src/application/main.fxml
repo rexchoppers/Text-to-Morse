@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Exit" />
+          </items>
+        </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <TextArea fx:id="input_tomorse" layoutX="13.0" layoutY="203.0" prefHeight="125.0" prefWidth="614.0" />
+            <Button layoutX="536.0" layoutY="336.0" mnemonicParsing="false" onMouseClicked="#translateToMorse" prefHeight="25.0" prefWidth="90.0" text="Translate" />
+            <TextArea fx:id="input_totranslate" layoutX="13.0" layoutY="42.0" prefHeight="125.0" prefWidth="614.0" />
+            <Text layoutX="13.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text to translate" wrappingWidth="614.0000152587891" />
+            <Text layoutX="13.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Result" wrappingWidth="614.0000152587891" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
