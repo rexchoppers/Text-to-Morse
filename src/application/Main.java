@@ -20,9 +20,9 @@ public class Main extends Application {
 	public static HashMap<Character, String> codes = new HashMap<>();
 
 	@FXML
-	private TextArea input_totranslate;
+	private TextArea inputToTranslate;
 	@FXML
-	private TextArea input_tomorse;
+	private TextArea inputToMorse;
 
 	public enum CodeType {
 		DOT, DASH;
@@ -35,7 +35,7 @@ public class Main extends Application {
 
 			Scene scene = new Scene(root, 640, 400);
 
-			Platform.runLater(() -> input_totranslate.requestFocus());
+			Platform.runLater(() -> inputToTranslate.requestFocus());
 
 			stage.setTitle("Text to Morse");
 			stage.setResizable(false);
@@ -131,21 +131,19 @@ public class Main extends Application {
 
 	@FXML
 	public void translateToMorse(MouseEvent event) {
-		if (input_totranslate.getText() == null || input_totranslate.getText().trim().isEmpty()) {
+		if (inputToTranslate.getText() == null || inputToTranslate.getText().trim().isEmpty()) {
 			showAlert("No input", "Please insert some text to translate into Morse");
 			return;
 		}
 
-		System.out.println(convertSentenceToMorse(input_totranslate.getText()));
+		System.out.println(convertSentenceToMorse(inputToTranslate.getText()));
 
-		input_tomorse.clear();
-		input_tomorse.setText(convertSentenceToMorse(input_totranslate.getText().toUpperCase()));
+		inputToMorse.clear();
+		inputToMorse.setText(convertSentenceToMorse(inputToTranslate.getText().toUpperCase()));
 
 		try {
-			playSound(input_tomorse.getText());
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (LineUnavailableException e) {
+			playSound(inputToMorse.getText());
+		} catch (InterruptedException | LineUnavailableException e) {
 			e.printStackTrace();
 		}
 	}
