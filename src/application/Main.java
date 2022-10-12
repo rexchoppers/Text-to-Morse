@@ -1,14 +1,7 @@
 package application;
 
-import java.nio.ByteBuffer;
 import java.util.HashMap;
-
-import javax.sound.midi.MidiUnavailableException;
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.SourceDataLine;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -42,12 +35,7 @@ public class Main extends Application {
 
 			Scene scene = new Scene(root, 640, 400);
 
-			Platform.runLater(new Runnable() {
-				@Override
-				public void run() {
-					input_totranslate.requestFocus();
-				}
-			});
+			Platform.runLater(() -> input_totranslate.requestFocus());
 
 			stage.setTitle("Text to Morse");
 			stage.setResizable(false);
