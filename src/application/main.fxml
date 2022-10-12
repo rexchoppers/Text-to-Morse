@@ -24,9 +24,9 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <TextArea fx:id="input_tomorse" layoutX="13.0" layoutY="203.0" prefHeight="125.0" prefWidth="614.0" />
+            <TextArea fx:id="inputToMorse" layoutX="13.0" layoutY="203.0" prefHeight="125.0" prefWidth="614.0" />
             <Button layoutX="536.0" layoutY="336.0" mnemonicParsing="false" onMouseClicked="#translateToMorse" prefHeight="25.0" prefWidth="90.0" text="Translate" />
-            <TextArea fx:id="input_totranslate" layoutX="13.0" layoutY="42.0" prefHeight="125.0" prefWidth="614.0" />
+            <TextArea fx:id="inputToTranslate" layoutX="13.0" layoutY="42.0" prefHeight="125.0" prefWidth="614.0" />
             <Text layoutX="13.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text to translate" wrappingWidth="614.0000152587891" />
             <Text layoutX="13.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Result" wrappingWidth="614.0000152587891" />
       </children>
