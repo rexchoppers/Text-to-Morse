@@ -5,3 +5,4 @@ bin/
 build.fxbuild
 .idea/
 out/
+*.iml
