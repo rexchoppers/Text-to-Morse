@@ -24,6 +24,8 @@ public class Main extends Application {
 	@FXML
 	private TextArea inputToMorse;
 
+	private final MorseSound morseSound = new MorseSound();
+
 	@Override
 	public void start(Stage stage) {
 		try {
@@ -51,6 +53,9 @@ public class Main extends Application {
 	}
 
 	public String convertWordToMorse(String word) {
+		// Convert the string to uppercase so the char lookup won't fail
+		word = word.toUpperCase();
+
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < word.length(); i++) {
 			char currentCharacter = word.charAt(i);
@@ -130,7 +135,7 @@ public class Main extends Application {
 			return;
 		}
 
-		String convertedOutput = convertSentenceToMorse(inputToTranslate.getText());
+		String convertedOutput = convertSentenceToMorse(inputToTranslate.getText()).trim();
 
 		inputToMorse.clear();
 		inputToMorse.setText(convertedOutput);
@@ -161,10 +166,10 @@ public class Main extends Application {
 					Thread.sleep(300);
 					break;
 				case '.':
-					new MorseSound().tone(550, 110);
+					this.morseSound.tone(550, 110);
 					break;
 				case '-':
-					new MorseSound().tone(550, 150);
+					this.morseSound.tone(550, 150);
 					break;
 			}
 		}
