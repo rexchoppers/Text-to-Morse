@@ -1,6 +1,8 @@
 package application;
 
+import java.net.URL;
 import java.util.HashMap;
+import java.util.ResourceBundle;
 import javax.sound.sampled.LineUnavailableException;
 
 import javafx.application.Application;
@@ -26,15 +28,17 @@ public class Main extends Application {
 
 	private final MorseSound morseSound = new MorseSound();
 
+	@FXML
+	public void initialize() {
+		Platform.runLater(() -> inputToTranslate.requestFocus());
+	}
+
 	@Override
 	public void start(Stage stage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
 
 			Scene scene = new Scene(root, 640, 400);
-
-			Platform.runLater(() -> inputToTranslate.requestFocus());
-
 			stage.setTitle("Text to Morse");
 			stage.setResizable(false);
 			stage.setScene(scene);
@@ -162,15 +166,9 @@ public class Main extends Application {
 			char c = morseSentence.charAt(i);
 
 			switch (c) {
-				case ' ':
-					Thread.sleep(300);
-					break;
-				case '.':
-					this.morseSound.tone(550, 110);
-					break;
-				case '-':
-					this.morseSound.tone(550, 150);
-					break;
+				case ' ' -> Thread.sleep(300);
+				case '.' -> this.morseSound.tone(550, 110);
+				case '-' -> this.morseSound.tone(550, 150);
 			}
 		}
 
