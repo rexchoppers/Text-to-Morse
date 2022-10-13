@@ -1,8 +1,6 @@
 package application;
 
-import java.net.URL;
 import java.util.HashMap;
-import java.util.ResourceBundle;
 import javax.sound.sampled.LineUnavailableException;
 
 import javafx.application.Application;
