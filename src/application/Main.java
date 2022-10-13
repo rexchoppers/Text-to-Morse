@@ -24,10 +24,6 @@ public class Main extends Application {
 	@FXML
 	private TextArea inputToMorse;
 
-	public enum CodeType {
-		DOT, DASH;
-	}
-
 	@Override
 	public void start(Stage stage) {
 		try {
@@ -47,12 +43,11 @@ public class Main extends Application {
 	}
 
 	public String convertCharacterToMorse(char character) {
-		System.out.println(character);
 		if (codes.get(character) != null) {
 			return codes.get(character);
-		} else {
-			return "";
 		}
+
+		throw new IllegalArgumentException("Character " + character + " is not supported");
 	}
 
 	public String convertWordToMorse(String word) {
@@ -65,10 +60,9 @@ public class Main extends Application {
 				sb.append(" ");
 			}
 
-			System.out.println(convertCharacterToMorse(currentCharacter));
 			sb.append(convertCharacterToMorse(currentCharacter));
 		}
-		System.out.println(sb.toString());
+
 		return sb.toString();
 	}
 
@@ -136,10 +130,10 @@ public class Main extends Application {
 			return;
 		}
 
-		System.out.println(convertSentenceToMorse(inputToTranslate.getText()));
+		String convertedOutput = convertSentenceToMorse(inputToTranslate.getText());
 
 		inputToMorse.clear();
-		inputToMorse.setText(convertSentenceToMorse(inputToTranslate.getText().toUpperCase()));
+		inputToMorse.setText(convertedOutput);
 
 		try {
 			playSound(inputToMorse.getText());
