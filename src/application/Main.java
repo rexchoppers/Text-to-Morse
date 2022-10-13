@@ -63,7 +63,6 @@ public class Main extends Application {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < word.length(); i++) {
 			char currentCharacter = word.charAt(i);
-			System.out.println(currentCharacter);
 
 			if (sb.length() != 0 && sb.toString().charAt(sb.length() - 1) != ' ') {
 				sb.append(" ");
@@ -80,8 +79,8 @@ public class Main extends Application {
 
 		sentence = sentence.trim();
 		String[] allWords = sentence.split(" ");
-		for (int i = 0; i < allWords.length; i++) {
-			sb.append(convertWordToMorse(allWords[i]));
+		for (String allWord : allWords) {
+			sb.append(convertWordToMorse(allWord));
 
 			if (sb.length() != 0 && sb.toString().charAt(sb.length() - 1) != ' ') {
 				sb.append("  ");
@@ -141,6 +140,8 @@ public class Main extends Application {
 
 		String convertedOutput = convertSentenceToMorse(inputToTranslate.getText()).trim();
 
+		System.out.println("Conversion result: " + inputToTranslate.getText() + " -> " + convertedOutput);
+
 		inputToMorse.clear();
 		inputToMorse.setText(convertedOutput);
 
@@ -171,6 +172,5 @@ public class Main extends Application {
 				case '-' -> this.morseSound.tone(550, 150);
 			}
 		}
-
 	}
 }
